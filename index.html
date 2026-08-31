@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terranativa - Mudas Florestais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b1d13;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Logo como fundo do site */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('logo.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(18, 48, 30, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .header-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2ecc71;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #2ecc71;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #a0aec0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Descrição */
+        .description-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 15px;
+            line-height: 1.8;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .description-box p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-text {
+            font-weight: bold;
+            color: #e2e8f0;
+            font-size: 16px;
+        }
+
+        /* Carrossel de Imagens */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .carousel-slide {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(46, 204, 113, 0.8);
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Botões de Ação */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        /* Localização */
+        .location-box {
+            font-size: 13px;
+            color: #cbd5e0;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo Principal -->
+        <img src="logo.png" alt="Terranativa Logo" class="header-logo" onerror="this.src='https://via.placeholder.com/120?text=Terranativa'">
+        
+        <h1>Terranativa</h1>
+        <div class="subtitle">Mudas Florestais & Agricultura</div>
+
+        <!-- Bloco de Descrição -->
+        <div class="description-box">
+            <p class="highlight-text">Temos mudas para o varejo e atacado:</p>
+            <p>🌳 Arborização Urbana</p>
+            <p>🌴 Mudas Frutíferas</p>
+            <p>🌱 Reflorestamento Ambiental</p>
+            <p>🌱 Mudas do Cerrado</p>
+            <p>🚚 Enviamos para todo Brasil</p>
+        </div>
+
+        <!-- Carrossel de Fotos -->
+        <div class="carousel-container">
+            <div class="carousel-slide" id="carouselSlide">
+                <img src="foto1.png" alt="Foto 1 - Mudas" onerror="this.src='https://via.placeholder.com/500x250?text=Mudas+Terranativa'">
+                <img src="foto2.png" alt="Foto 2 - Caminhonete de Mudas" onerror="this.src='https://via.placeholder.com/500x250?text=Transporte+de+Mudas'">
+                <img src="foto3.png" alt="Foto 3 - Colheita" onerror="this.src='https://via.placeholder.com/500x250?text=Producao+de+Mudas'">
+                <img src="foto4.png" alt="Foto 4 - Plantio" onerror="this.src='https://via.placeholder.com/500x250?text=Variedades+de+Plantas'">
+            </div>
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+        </div>
+
+        <!-- Botões de Contato -->
+        <div class="btn-container">
+            <a href="https://wa.me/5562991744925?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20mudas." target="_blank" class="btn btn-whatsapp">
+                💬 Fale no WhatsApp
+            </a>
+            <a href="https://www.instagram.com/terranativamudas/" target="_blank" class="btn btn-instagram">
+                📸 Siga no Instagram
+            </a>
+        </div>
+
+        <!-- Endereço / Localização -->
+        <div class="location-box">
+            📍 <span>R. João Pinheiro, S/N - Zona Rural, Terezópolis de Goiás, 75175-000</span>
+        </div>
+    </div>
+
+    <!-- Script do Carrossel -->
+    <script>
+        let currentIndex = 0;
+        const slide = document.getElementById('carouselSlide');
+        const totalSlides = 4;
+
+        function updateSlide() {
+            slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function moveSlide(direction) {
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            updateSlide();
+        }
+
+        // Transição automática a cada 4 segundos
+        setInterval(() => {
+            moveSlide(1);
+        }, 4000);
+    </script>
+</body>
+</html>
