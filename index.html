@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terranativa - Mudas Florestais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1b8a6b;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .logo-title img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .carousel-box {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            height: 280px;
+            border: 2px solid #52d6b0;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .carousel-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow.left { left: 15px; }
+        .arrow.right { right: 15px; }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .btn-whatsapp {
+            background-color: #6ee7b7;
+            color: #064e3b;
+        }
+
+        .btn-instagram {
+            background-color: #fbcfe8;
+            color: #831843;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-title">
+        <img src="logo.png" alt="Terranativa Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=🌾';">
+        Terranativa Mudas Florestais
+    </div>
+
+    <div class="carousel-box">
+        <button class="arrow left" onclick="prevSlide()">❮</button>
+        <img id="carouselImage" src="foto1.png" alt="Mudas na caminhonete" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x280?text=Mudas+na+caminhonete';">
+        <button class="arrow right" onclick="nextSlide()">❯</button>
+    </div>
+
+    <div class="btn-group">
+        <a href="https://wa.me/5562991744925" class="btn btn-whatsapp" target="_blank">Fale no WhatsApp</a>
+        <a href="https://www.instagram.com/terranativamudas" class="btn btn-instagram" target="_blank">Siga no Instagram</a>
+    </div>
+
+    <script>
+        const images = ["foto1.png", "foto2.png", "foto3.png", "foto4.png"];
+        let current = 0;
+
+        function updateImage() {
+            document.getElementById('carouselImage').src = images[current];
+        }
+
+        function nextSlide() {
+            current = (current + 1) % images.length;
+            updateImage();
+        }
+
+        function prevSlide() {
+            current = (current - 1 + images.length) % images.length;
+            updateImage();
+        }
+    </script>
+
+</body>
+</html>
